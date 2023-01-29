@@ -1,0 +1,121 @@
+$green: #678983;
+$pink: #F5E8E4;
+$dark-pink: #DBA39A;
+$dark-gray: #413F42;
+$white: #ffffff;
+$brown: #7E7474;
+
+body {
+  background-color: #F0E9D2
+}
+.card-img-l {
+  width: 400px;
+  height: 300px ;
+  object-fit: cover;
+  
+}
+.card-img-r {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+th {
+  background-color: $green !important;
+  color: #F5E8E4;
+  border-bottom: #000000 !important;
+}
+
+tr {
+/*   border-bottom: #73777B !important; */
+  border-bottom: #000000 !important;
+}
+
+tr td {
+  background-color: #413F42 !important;
+/*   color: #ffffff; */
+  color: #F5E8E4;
+  
+}
+
+.btn-success-c {
+  color: #F5E8E4;
+  background-color: #678983 ;
+}
+
+.btn-outline-success-c {
+  color: #678983;
+  border-color: #678983;
+  &:hover {
+    color: #ffffff;
+    background-color: #678983 ;
+    
+  }
+}
+
+.btn-outline-pink {
+  color: $dark-pink;
+  border-color: $dark-pink;
+  &:hover {
+    color: $white;
+    background-color: $dark-pink;
+
+  }
+}
+
+.bg-success-c {
+  background: #678983;
+}
+
+.text-success-c {
+  color: #678983
+}
+
+.bg-pink {
+  background-color: #F5E8E4;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.rounded-5 {
+  border-radius: 1.75rem
+}
+
+.border-separate {
+  border-collapse: separate;
+}
+
+.border-spacing {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem !important;
+}
+
+// 表格四邊圓角
+.left-top-bottom-radius {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.right-top-bottom-radius {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  transition-duration: 0.5s;
+}
+
+th:first-child, td:first-child {
+  @extend .left-top-bottom-radius;
+}
+
+th:last-child, td:last-child{
+  @extend .right-top-bottom-radius;
+}
+
+ tr:hover {
+  @extend .left-top-bottom-radius, .right-top-bottom-radius;
+  // transition-delay: 2s;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+  background-color: #524f53;
+  transform: translateY(-0.1rem)
+}
