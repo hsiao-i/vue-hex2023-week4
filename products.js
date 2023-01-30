@@ -40,9 +40,8 @@ const app = Vue.createApp({
 
         axios.post(url)
         .then(() => {
-
           this.getProducts()
-          console.log(this.products);
+
         })
         .catch(() => {
           alert('請重新登入')
@@ -55,6 +54,7 @@ const app = Vue.createApp({
 
       axios.get(url)
       .then((res) => {
+        console.log(res);
         this.products = res.data.products
         this.pagination = res.data.pagination
         
@@ -65,6 +65,7 @@ const app = Vue.createApp({
     },
     
     openModal(state, product) {
+      
       if (state === 'new') {
         this.isNew = true
         this.productData = {}
@@ -72,7 +73,10 @@ const app = Vue.createApp({
       } else if (state === 'edit') {
         this.isNew = false
         this.productData = product
+        // this.$refs.productModal.starScore(this.productData.starScore)
+  
         productModal.show()
+        
       } else if (state === 'delete') {
         this.productData = product
         delProductModal.show()
@@ -168,6 +172,12 @@ app.component('product-modal', {
   },
   mounted() {
     productModal = new bootstrap.Modal(document.getElementById('productModal'))
+    
+    
+    // if (this.productData.starScore) {
+    //   console.log('有評價');
+    //   this.starScore(this.productData.starScore)
+    // }
   }
 })
 

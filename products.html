@@ -65,7 +65,7 @@
   </div>
   
   <!-- 新增和編輯 modal -->
-  <script type="text/x-template" id="productModalTemplate">
+  <script type="text/x-template" id="productModalTemplate" ref="productModal" >
     <div class="modal fade w-100" ref="productModal" id="productModal"  tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" style="max-width: 800px">
         <div class="modal-content">
@@ -179,10 +179,11 @@
                   <label for="star" class="form-label">星級評價</label>
                   <span class="material-symbols-outlined icon" role="button"
                   v-for="star in starList" :key="star.id + 'star'"  
-                  @click="starScore(star.id), productData.starScore = id" 
+                  @click="starScore(star.id), productData.starScore = star.id" 
                   :class="{ 'text-warning': star.isTarget }">
                     star
                   </span>
+                  <input type="hidden" v-model="productData.starScore">
                   
                 </div>
                 <div class="mb-3">
