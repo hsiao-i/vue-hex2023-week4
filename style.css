@@ -37,6 +37,10 @@ tr td {
   color: #F5E8E4;
   background-color: #678983;
 }
+.btn-success-c:hover {
+  color: #ffffff;
+  background-color: #475e59;
+}
 
 .btn-outline-success-c {
   color: #678983;
@@ -101,3 +105,16 @@ tr:hover {
   background-color: #524f53;
   transform: translateY(-0.1rem);
 }/*# sourceMappingURL=style.css.map */
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: #DDDDDD
+
+}
+
+

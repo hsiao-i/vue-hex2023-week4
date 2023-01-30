@@ -17,14 +17,13 @@ const app = Vue.createApp({
 
       axios.post(url, this.user)
       .then((res) => {
-        console.log(res);
         const { expired, token } = res.data
         document.cookie = `hexToken=${ token };expires=${ new Date(expired) }`
-        window.location='products.html'
+        window.location = 'products.html'
         
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        alert('帳號或密碼錯誤')
       })
     }
   }

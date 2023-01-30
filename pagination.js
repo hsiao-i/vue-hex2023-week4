@@ -1,7 +1,6 @@
 export default {
   props: ['pages'],
   template: `
-  {{ pages }}
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item" :class="{ disabled: !pages.has_pre }">
