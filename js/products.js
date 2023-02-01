@@ -54,7 +54,6 @@ const app = Vue.createApp({
 
       axios.get(url)
       .then((res) => {
-        console.log(res);
         this.products = res.data.products
         this.pagination = res.data.pagination
         
@@ -72,13 +71,13 @@ const app = Vue.createApp({
         productModal.show()
       } else if (state === 'edit') {
         this.isNew = false
-        this.productData = product
+        this.productData = { ...product }
         // this.$refs.productModal.starScore(this.productData.starScore)
   
         productModal.show()
         
       } else if (state === 'delete') {
-        this.productData = product
+        this.productData = { ...product }
         delProductModal.show()
       }
     },
@@ -168,7 +167,22 @@ app.component('product-modal', {
       })
       // this.productData.starScore = id
     }
-    
+  },
+  watch: {
+    productData: {
+      handler(n, o) {
+        if (n.starScore !== o.starScore) {
+          this.starList = [
+            { id: 1, isTarget: false },
+            { id: 2, isTarget: false },
+            { id: 3, isTarget: false },
+            { id: 4, isTarget: false },
+            { id: 5, isTarget: false },
+          ]
+        }
+      },
+      deep: true
+    }
   },
   mounted() {
     productModal = new bootstrap.Modal(document.getElementById('productModal'))
